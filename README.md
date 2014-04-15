@@ -8,36 +8,36 @@ bridge.js (or v8bridge) is a JavaScript is a C++ headers-only library that exten
 
 Alternative/Related Works
 ---------
-**bridge.js** is not the first approch to create a bridge between C++ and JavaScript.
+**bridge.js** is not the first approach to create a bridge between C++ and JavaScript.
 
 Some popular projects, includes:
 
 - [**node.js**](http://nodejs.org): One of the most popular projects today.
-- [**Nasiu Scripting**](https://code.google.com/p/nasiu-scripting): One of my favorite projects. The Conversion API initialy inspired by it.
-- [**vu8**](https://github.com/tsa/vu8): The project goal is very simlier to **bridge.js** and is one of the few bindings frameworks I've seen which uses templates to generate the bindings (as opposed to macros). If I wouldn't choose **bridge.js** and V8 wouldn't change it's whole API, I were choose this project.
+- [**Nasiu Scripting**](https://code.google.com/p/nasiu-scripting): One of my favorite projects. The Conversion API initially inspired by it.
+- [**vu8**](https://github.com/tsa/vu8): The project goal is very similar to **bridge.js** and is one of the few bindings frameworks I've seen which uses templates to generate the bindings (as opposed to macros). If I wouldn't choose **bridge.js** and V8 wouldn't change it's whole API, I were choose this project.
 - [**cproxyv8**](https://code.google.com/p/cproxyv8/).
 
-In addition, you can browse more projects that relys on Mozila's Spidermonkey as its backend JS engine:
+In addition, you can browse more projects that relays on Mozila's Spidermonkey as its backend JS engine:
 
-- [**libjspp**](https://code.google.com/p/libjspp/): One of my favorite projects and is very similier to bridge.js. Unfortunatly, the project source code is not available anymore.
+- [**libjspp**](https://code.google.com/p/libjspp/): One of my favorite projects and is very similar to bridge.js. Unfortunately, the project source code is not available anymore.
 - [**Flusspferd**](https://github.com/Flusspferd/flusspferd).
 - [**SpiderApe**](http://sourceforge.net/p/spiderape).
 
 Objectives
 ---------
 
-As you can see above, there're planty of awesome simlier projects. What is so special about bridge.js?
+As you can see above, there're planty of awesome similar projects. What is so special about bridge.js?
 When looking for bridge library, I wanted a library that can handle native types, so I won't need to lean how to interact with V8 API in order to bind C++ functions to JS.
-Moreover, I wanted a library that make it easy to bind standard functions and classes, **even existsing**, to JS, so I won't need to write specific implementations for JS (which results in code duplication).
+Moreover, I wanted a library that make it easy to bind standard functions and classes, **even existing**, to JS, so I won't need to write specific implementations for JS (which results in code duplication).
 
 To sort things out, the main objectives of **bridge.js** are:
 
 - Provides OOP interface to interact with JavaScript.
 - Allow to embed in C++ Applications, even they're not web-related (like games).
 - Supports the latest V8 engine API.
-- Allow to simply expose C++ functions and classes, **even exsisting**, without the need of callbacks.
+- Allow to simply expose C++ functions and classes, **even existing**, without the need of callbacks.
 - Work with native data types without being restricted to V8 handles (int instead of Handle<Int32>, std::string instead of Handle<String> etc.).
-- Allow to specifiy functions and methods overloads (i.e. int multiply(x) and int multiply(x, y) which will be resolved by the paramters sent in JS).
+- Allow to specify functions and methods overloads (i.e. int multiply(x) and int multiply(x, y) which will be resolved by the parameters sent in JS).
 - Allow to expose class constructor(s) (overloads).
 - Allow to receive, in case of need, the raw V8 function callback info.
 - Allow to return, in case of need, a raw V8 handle.
@@ -49,14 +49,14 @@ APIs
 **bridge.js** contains the main API's below:
 
 - Type-conversion between C++ and JavaScript (the **Conversion API**).
-- Interfaces used to expose existsing C++ functions and classes to JS (the **Native API**).
-- Interfaces used to easly access JS data (variables, functions, "classes" etc.) in C++ (the **Userland API**).
+- Interfaces used to expose existing C++ functions and classes to JS (the **Native API**).
+- Interfaces used to easily access JS data (variables, functions, "classes" etc.) in C++ (the **Userland API**).
 
 
 Dependencies
 ---------
 
-- [**v8**](https://code.google.com/p/v8/): The backend engine used by bridge.js is Google's V8 engine. bridge.js was tested by using the latest version of v8, which is 3.25.1. Thats being said, the project should support earlier builds as long as they're supporing the new Isolate API (which was introduced in 2013).
+- [**v8**](https://code.google.com/p/v8/): The backend engine used by bridge.js is Google's V8 engine. bridge.js was tested by using the latest version of v8, which is 3.25.1. That's being said, the project should support earlier builds as long as they're supporing the new Isolate API (which was introduced in 2013).
 - [**boost**](http://www.boost.org) 1.37+.
 
 ### Boost dependency
@@ -108,9 +108,9 @@ Samples
 
 One of my favorite parts in every README file! We've prepared an awesome "sample" directory that contains many samples that are quite straight-forward!
 
-- **hello_world.cpp**: The tradditional "Hello World" sample. This sample demonstrates how to create a new ScriptingEngine, create a native function endpoint (for our "void hello()" function), exposing it to JS and then triggering it by evaluating some JS code.
+- **hello_world.cpp**: The traditional "Hello World" sample. This sample demonstrates how to create a new ScriptingEngine, create a native function endpoint (for our "void hello()" function), exposing it to JS and then triggering it by evaluating some JS code.
 - **access_js_variables.cpp**: This sample demonstrates how to access some JS-declared variables from different types in C++ by using the base ScriptingEngine class, which invokes the **Conversion API**.
-- **functions.cpp**: This sample demonstrates in more details how to expose a C++ native function to JS. In this demo, we're binding functions that return void and native value (int). In addition, we're declaring 2 overloads (int mulitply(x) and int multiply(x, y)) that will be exposed to JS.
+- **functions.cpp**: This sample demonstrates in more details how to expose a C++ native function to JS. In this demo, we're binding functions that return void and native value (int). In addition, we're declaring 2 overloads (int multiply(x) and int multiply(x, y)) that will be exposed to JS.
 - **functions_v8_args.cpp**: This sample demonstrates how to access the raw V8 function callback info with the binded function.
 - **functions_v8_return_handle.cpp**: This sample demonstrates how to return raw V8 handle (Handle<Value>, Handle<Array> etc.) from your binded functions.
 - **functions_callback.cpp**: This sample demonstrates how to interact with callbacks that was sended to C++ from JS or to JS from C++.
@@ -120,9 +120,9 @@ One of my favorite parts in every README file! We've prepared an awesome "sample
 - **js_functions.cpp**: This sample demonstrates how to interact with functions that was declared in JS within C++.
 - **js_classes.cpp**: This sample demonstrates how to interact with "classes" that was declared in JS within C++ (create "instances", invoke methods etc.).
 
-Sample code comprasion
+Sample code comparison
 ---------
-To demonstrate how easy it is to bridge between C++ and JS, lets bind the following sample method:
+To demonstrate how easy it is to bridge between C++ and JS, lets bind the following sample function:
 ```
 int add(int x, int y)
 {
@@ -229,10 +229,12 @@ int main(int argc, const char *argv[])
     
     NativeFunction *addFunction = new NativeFunction(engine->getActiveIsolationScope());
     addFunction->addOverload(add); // declared above in this document
-    engine->exposeFunction(addFunction);
+    engine->exposeFunction(addFunction, "add");
     
     std::cout << "Result: " << engine->eval<int>(scriptCode);
 
+    delete addFunction;
+    delete engine;
     return 0;
 }
 ```
